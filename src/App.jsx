@@ -47,14 +47,14 @@ function App() {
   };
 
   return (
-    <div className="bg-zinc-800 h-screen flex flex-col items-center justify-center gap-20">
-      <h1 className="text-4xl text-zinc-100 font-semibold uppercase tracking-widest">
-        Guess The Color
+    <div className="bg-slate-900 h-screen flex flex-col items-center justify-center gap-20">
+      <h1 className="text-4xl text-slate-300 font-semibold uppercase tracking-widest text-center">
+        Guess The <br className="block sm:hidden" /> Color
       </h1>
 
-      <div className="bg-zinc-800 flex-col gap-8 flex items-center justify-center">
+      <div className="flex flex-col gap-8 items-center justify-center">
         <div
-          className="h-60 w-80  rounded-lg border-solid border-4 border-zinc-200 relative"
+          className="h-48 w-64 m-auto rounded-lg border-solid border-4 border-slate-300 relative sm:w-80 sm:h-60"
           style={{ backgroundColor: `${bgColor}` }}
         >
           <p
@@ -65,10 +65,10 @@ function App() {
             {message}
           </p>
         </div>
-        <div className="flex gap-x-4">
+        <div className="flex flex-col gap-4 sm:flex-row">
           {randoms.map((item) => (
             <button
-              className="bg-slate-300 py-2 px-4 text-xl font-normal rounded-lg leading-none hover:bg-black hover:text-white duration-300 disabled:bg-opacity-20 disabled:text-opacity-10 disabled:pointer-events-none"
+              className="bg-slate-300 text-slate-900 py-2 px-4 text-xl font-normal rounded-lg leading-none hover:-translate-y-0.5 hover:bg-slate-50  duration-300 disabled:bg-opacity-25 disabled:pointer-events-none"
               onClick={() => handleClick(item)}
               disabled={disabled.includes(item)}
               key={item}
@@ -78,6 +78,16 @@ function App() {
           ))}
         </div>
       </div>
+      <footer className="absolute bottom-4 text-slate-500">
+        <a
+          href="https://batuhankendirli.netlify.app/"
+          target="_blank"
+          className="relative text-xl text-slate-300 duration-300 after:w-0 after:h-[1px] after:absolute after:left-0 after:-bottom-[2px] after:bg-slate-50 after:duration-300 hover:text-slate-50 hover:after:w-full "
+        >
+          Batuhan Kendirli
+        </a>{' '}
+        - 2022
+      </footer>
     </div>
   );
 }
