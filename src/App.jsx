@@ -47,38 +47,40 @@ function App() {
   };
 
   return (
-    <div className="bg-slate-900 h-screen flex flex-col items-center justify-center gap-20">
-      <h1 className="text-4xl text-slate-300 font-semibold uppercase tracking-widest text-center">
-        Guess The <br className="block sm:hidden" /> Color
-      </h1>
+    <div className="flex flex-col bg-slate-900 h-screen items-center">
+      <div className="flex flex-1 flex-col items-center justify-center gap-20">
+        <h1 className="text-4xl text-slate-300 font-semibold uppercase tracking-widest text-center">
+          Guess The <br className="block sm:hidden" /> Color
+        </h1>
 
-      <div className="flex flex-col gap-8 items-center justify-center">
-        <div
-          className="h-48 w-64 m-auto rounded-lg border-solid border-4 border-slate-300 relative sm:w-80 sm:h-60"
-          style={{ backgroundColor: `${bgColor}` }}
-        >
-          <p
-            className={`absolute left-0 -top-1/4 text-2xl w-full flex justify-center text-zinc-200 ${
-              isCorrect ? 'text-green-400' : 'text-red-500'
-            }`}
+        <div className="flex flex-col gap-8 items-center justify-center">
+          <div
+            className="h-48 w-64 m-auto rounded-lg border-solid border-4 border-slate-300 relative sm:w-80 sm:h-60 duration-700"
+            style={{ backgroundColor: `${bgColor}` }}
           >
-            {message}
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 sm:flex-row">
-          {randoms.map((item) => (
-            <button
-              className="bg-slate-300 text-slate-900 py-2 px-4 text-xl font-normal rounded-lg leading-none hover:-translate-y-0.5 hover:bg-slate-50  duration-300 disabled:bg-opacity-25 disabled:pointer-events-none"
-              onClick={() => handleClick(item)}
-              disabled={disabled.includes(item)}
-              key={item}
+            <p
+              className={`absolute left-0 -top-1/4 text-2xl w-full flex justify-center text-zinc-200 ${
+                isCorrect ? 'text-green-400' : 'text-red-500'
+              }`}
             >
-              {item}
-            </button>
-          ))}
+              {message}
+            </p>
+          </div>
+          <div className="flex flex-col gap-4 sm:flex-row">
+            {randoms.map((item) => (
+              <button
+                className="bg-slate-300 text-slate-900 py-2 px-4 text-xl font-normal rounded-lg leading-none hover:-translate-y-0.5 hover:bg-slate-50  duration-300 disabled:bg-opacity-25 disabled:pointer-events-none"
+                onClick={() => handleClick(item)}
+                disabled={disabled.includes(item)}
+                key={item}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
-      <footer className="absolute bottom-4 text-slate-500">
+      <footer className="bottom-4 text-slate-500 p-4">
         <a
           href="https://batuhankendirli.netlify.app/"
           target="_blank"
